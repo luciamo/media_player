@@ -14,6 +14,7 @@ public class Trie {
 	 */
 	Trie(){
 		this.root = new TrieNode();
+		musicsList = new ArrayList<String>();
 	}
 	
 	/**
@@ -92,12 +93,13 @@ public class Trie {
 		if(node.isEnd())
 		{	
 			int i = 0;
-			String musicName = " ";
+			String musicName = "";
 			out[index]='\0';
 			while(out[i] != '\0') {
 				musicName = musicName+out[i];
 				i++;
 			}
+			musicsList.add(musicName);
 		}
 		return musicsList;
 	}
@@ -127,7 +129,6 @@ public class Trie {
 		}
 
 		node.setEnd(false);
-		
 		if (!node.childsArrayIsEmpty()){
 			return true;
 		}

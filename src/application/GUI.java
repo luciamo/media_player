@@ -1,5 +1,7 @@
 package application;
 	
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -21,6 +23,59 @@ public class GUI extends Application {
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		
+		//launch(args);
+		
+		//Testando a Trie
+		Trie arvore = new Trie();
+		
+		arvore.insertMusic("casa", "1");
+		arvore.insertMusic("casal", "2");
+		arvore.insertMusic("casca", "3");
+		
+		char[] teste = new char[26];
+		ArrayList<String> testearr = arvore.listMusics(arvore.getRoot(), teste, 0);
+
+		for(int i=0; i<testearr.size(); i++)
+		{
+			System.out.println(testearr.get(i));
+		}	
+		
+		//removendo casa
+		arvore.removeMusic("casa");
+		
+		testearr.clear();
+		System.out.println("Depois da remoção de casa--------");
+		testearr = arvore.listMusics(arvore.getRoot(), teste, 0);
+
+		for(int i=0; i<testearr.size(); i++)
+		{
+			System.out.println(testearr.get(i));
+		}
+		
+		//insere casa denovo
+		arvore.insertMusic("casa", "1");
+		
+		testearr.clear();
+		System.out.println("inseriu casa denovo casa--------");
+		testearr = arvore.listMusics(arvore.getRoot(), teste, 0);
+
+		for(int i=0; i<testearr.size(); i++)
+		{
+			System.out.println(testearr.get(i));
+		}
+		
+		//removendo casca
+		arvore.removeMusic("casca");
+		
+		testearr.clear();
+		System.out.println("Depois da remoção de casca--------");
+		testearr = arvore.listMusics(arvore.getRoot(), teste, 0);
+
+		for(int i=0; i<testearr.size(); i++)
+		{
+			System.out.println(testearr.get(i));
+		}
+		
 	}
 }
