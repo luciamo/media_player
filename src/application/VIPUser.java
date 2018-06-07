@@ -1,10 +1,31 @@
 package application;
 
-public class VIPUser extends User {
+import java.util.ArrayList;
 
-	VIPUser(String userName, String password) {
+public class VIPUser extends User {
+	
+	private ArrayList<PlayList> playLists; 
+	
+	VIPUser(String userName, String password){
 		super(userName, password);
-		// TODO Auto-generated constructor stub
+		playLists = new ArrayList<PlayList>();
 	}
 
+	public void createPlayList(String playListName) {
+		PlayList playlist = new PlayList(playListName);
+		this.playLists.add(playlist);
+	}
+	
+	public void removePlayList(String playListName) {
+		for(int i = 0; i < playLists.size(); i++) { 
+			if( playLists.get(i).getName().equals(playListName)) {
+				playLists.remove(i);
+			}
+		}
+	}
+
+	public ArrayList<PlayList> getPlayLists() {
+		return playLists;
+	}
+	
 }
