@@ -29,6 +29,7 @@ public class BinarySearchTree {
 	 */
 	private BinarySearchTreeNode insertInterno(BinarySearchTreeNode root, String word) {
 		if(root == null) {
+			System.out.println(word);
 			root = new BinarySearchTreeNode(word);
 		}
 		else if(root.getValue().compareTo(word)==0){
@@ -38,7 +39,7 @@ public class BinarySearchTree {
 			root.left = insertInterno(root.left, word);
 		}
 		else if(root.getValue().compareTo(word)<0) {
-			root.right = insertInterno(root.right, word);	
+			root.right = insertInterno(root.right, word);
 		}
 		return root;
 	}
@@ -54,7 +55,7 @@ public class BinarySearchTree {
 	 * @return retorna o nó que contém a palavra buscada ou o nó raiz em caso de não encontrá-la
 	 */
 	private BinarySearchTreeNode search(BinarySearchTreeNode node, String word) {
-		if(node!=null) {
+		if(node != null) {
 			if(node.getValue().compareTo(word)==0) {
 				return node;
 			}
@@ -65,9 +66,9 @@ public class BinarySearchTree {
 				return search(node.right, word);
 			}
 		}
+		System.out.println("Palavra não encontrada");
 		return null;
 	}
-	
 	public void print() {
 		treePrint(this.root);
 	}
