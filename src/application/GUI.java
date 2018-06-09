@@ -82,9 +82,7 @@ public class GUI extends Application {
 		BinarySearchTree lucianTree = new BinarySearchTree("lucian");
 		lucianTree.insert("Joseh");
 		lucianTree.insert("Natalia");
-		lucianTree.print();
-		BinarySearchTreeNode luc = lucianTree.publicSearch("Joseh");
-		System.out.println(luc.getValue());
 		
+		lucianTree.publicSearch("Joseh");
 	}
 }
