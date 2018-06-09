@@ -14,6 +14,12 @@ public class BinarySearchTreeNode {
 		this.right = null;
 	}
 	
+	public BinarySearchTreeNode() {
+		this.value = null;
+		this.left = null;
+		this.right = null;
+	}
+	
 	/**
 	 * Método para retornar o valor de um nó
 	 */
