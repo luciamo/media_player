@@ -9,9 +9,9 @@ public class BinarySearchTreeNode {
 	 * Método construtor do Nó da arvore
 	 */
 	public BinarySearchTreeNode(String nome) {
-		value = nome;
-		left = null;
-		right = null;
+		this.value = nome;
+		this.left = null;
+		this.right = null;
 	}
 	
 	/**

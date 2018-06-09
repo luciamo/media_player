@@ -77,5 +77,11 @@ public class GUI extends Application {
 			System.out.println(testearr.get(i));
 		}
 		
+		//Luciano Testando ----------------------------------------------------------
+		
+		BinarySearchTree lucianTree = new BinarySearchTree("lucian");
+		lucianTree.insert("Joseh");
+		lucianTree.insert("Natalia");
+		lucianTree.print();
 	}
 }
