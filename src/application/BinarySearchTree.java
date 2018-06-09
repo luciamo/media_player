@@ -52,7 +52,7 @@ public class BinarySearchTree {
 	 * Método para buscar na árvore
 	 * @param node: Nó da árvore onde deve-se começar o processo de busca (por padrão deve ser a raiz).
 	 * @param word: Palavra a ser buscada na árvore.
-	 * @return retorna o nó que contém a palavra buscada
+	 * @return retorna o nó que contém a palavra buscada ou o nó raiz em caso de não encontrá-la
 	 */
 	private BinarySearchTreeNode search(BinarySearchTreeNode node, String word) {
 		if(node != null) {
@@ -80,7 +80,7 @@ public class BinarySearchTree {
 	
 	private void treePrint(BinarySearchTreeNode node){
 		if(node!=null){
-			System.out.print(node.getValue());
+			System.out.println(node.getValue());
 			treePrint(node.left);
 			treePrint(node.right);
 		}
