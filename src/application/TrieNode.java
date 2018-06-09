@@ -47,7 +47,12 @@ public class TrieNode {
 	}
 
 	public boolean childsArrayIsEmpty() {
-		return false;
+		for (int i = 0 ; i < childs.length ; i++ ) {
+			if ( childs[i] != null ){
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public void clearchildsInNode() {
