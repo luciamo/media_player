@@ -1,21 +1,21 @@
 package application;
 
 public class BinarySearchTreeNode {
-	private String value; //nome do usuário
+	private User user; // usuário
 	BinarySearchTreeNode left;
 	BinarySearchTreeNode right;
 	
 	/**
 	 * Método construtor do Nó da arvore
 	 */
-	public BinarySearchTreeNode(String nome) {
-		this.value = nome;
+	public BinarySearchTreeNode(User u) {
+		this.user = u;
 		this.left = null;
 		this.right = null;
 	}
 	
 	public BinarySearchTreeNode() {
-		this.value = null;
+		this.user = null;
 		this.left = null;
 		this.right = null;
 	}
@@ -23,8 +23,8 @@ public class BinarySearchTreeNode {
 	/**
 	 * Método para retornar o valor de um nó
 	 */
-	public String getValue() {
-		return this.value;
+	public User getUser() {
+		return this.user;
 	}
 	
 }

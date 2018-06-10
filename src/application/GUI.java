@@ -78,21 +78,23 @@ public class GUI extends Application {
 		}
 		
 		//Luciano Testando ----------------------------------------------------------
-
-        BinarySearchTree lucianTree = new BinarySearchTree("aaa");
-        lucianTree.insert("aab");
-        lucianTree.insert("aac");
+		User l = new User("luciano", "duduazul");
+		User j = new User("joseh", "hesoj");
+		User n = new User("natalia", "natamigadosanimais");
+        BinarySearchTree lucianTree = new BinarySearchTree(l);
+        lucianTree.insert(j);
+        lucianTree.insert(n);
         //lucianTree.print();
         BinarySearchTreeNode luc = null;
 
-        String x = "aaj";
+        String x = "luciano";
         if(lucianTree.publicSearch(x) != null)
         {
              luc = lucianTree.publicSearch(x);
         }
         if(luc != null)
         {
-            System.out.println(luc.getValue());
+            System.out.println(luc.getUser().getUserName());
         }
 	}
 }

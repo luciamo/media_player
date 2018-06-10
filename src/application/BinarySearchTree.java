@@ -12,63 +12,69 @@ public class BinarySearchTree {
 	
 	/**
 	 * Método construtor inicializado com uma palavra
-	 * @param word: palavra para a raiz
+	 * @param user: Usuário para a raiz
 	 */
-	public BinarySearchTree(String word) {
-		root = new BinarySearchTreeNode(word);	
-	}
-	
-	public void insert(String word) {
-		root = insertInterno(root, word);
+	public BinarySearchTree(User user) {
+		root = insertInterno(root, user);	
 	}
 	
 	/**
-	 * Método para inserir na árvore
-	 * @param node: Nó da árvore onde deve-se começar o processo de inserção (por padrão deve ser a raiz).
-	 * @param word: Palavra a ser inserida na árvore.
+	 * Método público para inserir usuário na árvore 
+	 * @param user: usuário a ser inserido
 	 */
-	private BinarySearchTreeNode insertInterno(BinarySearchTreeNode root, String word) {
+	public void insert(User user) {
+		root = insertInterno(root, user);
+	}
+	
+	/**
+	 * Método privado para inserir na árvore
+	 * @param node: Nó da árvore onde deve-se começar o processo de inserção (por padrão deve ser a raiz).
+	 * @param user: Usuário a ser inserido na árvore.
+	 */
+	private BinarySearchTreeNode insertInterno(BinarySearchTreeNode root, User user) {
 		if(root == null) {
-			System.out.println(word);
-			root = new BinarySearchTreeNode(word);
+			root = new BinarySearchTreeNode(user);
 		}
-		else if(root.getValue().compareTo(word)==0){
-			System.out.println("A palavra já está associada a um nó existente");
+		else if(root.getUser().getUserName().compareTo(user.getUserName())==0){
+			System.out.println("Username já existe nos nossos registros");
 		}
-		else if(root.getValue().compareTo(word)>0){
-			root.left = insertInterno(root.left, word);
+		else if(root.getUser().getUserName().compareTo(user.getUserName())>0){
+			root.left = insertInterno(root.left, user);
 		}
-		else if(root.getValue().compareTo(word)<0) {
-			root.right = insertInterno(root.right, word);
+		else if(root.getUser().getUserName().compareTo(user.getUserName())<0) {
+			root.right = insertInterno(root.right, user);
 		}
 		return root;
 	}
 	
-	public BinarySearchTreeNode publicSearch(String word) {
-		return search(root, word);
+	public BinarySearchTreeNode publicSearch(String username) {
+		return search(root, username);
 	}
 	
 	/**
 	 * Método para buscar na árvore
 	 * @param node: Nó da árvore onde deve-se começar o processo de busca (por padrão deve ser a raiz).
-	 * @param word: Palavra a ser buscada na árvore.
+	 * @param username: Nome do usuário a ser buscado na árvore.
 	 * @return retorna o nó que contém a palavra buscada ou o nó raiz em caso de não encontrá-la
 	 */
-	private BinarySearchTreeNode search(BinarySearchTreeNode node, String word) {
+	private BinarySearchTreeNode search(BinarySearchTreeNode node, String username) {
 		if(node != null) {
-			if(node.getValue().compareTo(word)==0) {
+			if(node.getUser().getUserName().compareTo(username)==0) {
 				return node;
 			}
-			else if(node.getValue().compareTo(word)>0){
-				return search(node.left, word);
+			else if(node.getUser().getUserName().compareTo(username)>0){
+				return search(node.left, username);
 			}
-			else if(node.getValue().compareTo(word)<0) {
-				return search(node.right, word);
+			else if(node.getUser().getUserName().compareTo(username)<0) {
+				return search(node.right, username);
 			}
 		}
-		System.out.println("Palavra não encontrada");
+		System.out.println("Usuário não encontrado");
 		return null;
 	}
+	/**
+	 * Método público para imprimir árvores
+	 */
 	public void print() {
 		treePrint(this.root);
 	}
@@ -80,7 +86,7 @@ public class BinarySearchTree {
 	
 	private void treePrint(BinarySearchTreeNode node){
 		if(node!=null){
-			System.out.println(node.getValue());
+			System.out.println(node.getUser().getUserName());
 			treePrint(node.left);
 			treePrint(node.right);
 		}
