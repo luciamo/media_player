@@ -32,13 +32,19 @@ public class LoginController implements Initializable {
 		if(userExist(userName)){
 			if(users.publicSearch(userName).comparePassword(passWord)) {
 				try {
-					((Stage) ((Node) e.getSource()).getScene().getWindow()).close();
+					
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/PlayerScreen.fxml"));
+					Parent root = loader.load();
+					
+					PlayerController player = loader.getController();
+					player.initData(users.publicSearch(userName));
+					
 					Stage primaryStage = new Stage();
-					Parent root = FXMLLoader.load(getClass().getResource("/application/PlayerScreen.fxml"));
-					Scene scene = new Scene(root,800,600);
+					Scene scene = new Scene(root);
 					scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 					primaryStage.setScene(scene);
 					primaryStage.show();
+					((Stage) ((Node) e.getSource()).getScene().getWindow()).close();
 					
 				} catch(Exception e1) {
 					e1.printStackTrace();
