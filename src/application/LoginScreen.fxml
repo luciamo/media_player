@@ -6,17 +6,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #101010;">
+      <Pane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #101010;">
          <children>
-            <TextField layoutX="207.0" layoutY="130.0" />
-            <Text fill="WHITE" layoutX="263.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px;" text="Login" />
-            <Text fill="WHITE" layoutX="261.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 23px;" text="Usuário" />
-            <Text fill="WHITE" layoutX="269.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 23px;" text="Senha" />
-            <TextField layoutX="207.0" layoutY="217.0" />
-            <Button layoutX="240.0" layoutY="296.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #46a0db;" text="Entrar &gt;" textFill="WHITE" />
+            <TextField layoutX="307.0" layoutY="192.0" />
+            <Text fill="WHITE" layoutX="354.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px;" text="LOGIN" textAlignment="CENTER" wrappingWidth="92.744140625" />
+            <Text fill="WHITE" layoutX="361.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 23px;" text="Usuário" textAlignment="CENTER" />
+            <Text fill="WHITE" layoutX="369.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 23px;" text="Senha" textAlignment="CENTER" />
+            <TextField layoutX="307.0" layoutY="279.0" />
+            <Button layoutX="340.0" layoutY="358.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" style="-fx-background-color: #46a0db;" text="Entrar &gt;" textFill="WHITE" />
          </children>
       </Pane>
    </children>

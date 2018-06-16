@@ -26,7 +26,7 @@ public class GUI extends Application {
 	
 	public static void main(String[] args) {
 		
-		//launch(args);
+		launch(args);
 		
 		//Testando a Trie
 		Trie arvore = new Trie();
