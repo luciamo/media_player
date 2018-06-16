@@ -42,6 +42,6 @@
             <Insets top="86.0" />
          </GridPane.margin>
       </Text>
-      <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <PasswordField fx:id="textPassWord" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>
