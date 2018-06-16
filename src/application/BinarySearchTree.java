@@ -47,8 +47,14 @@ public class BinarySearchTree {
 		return root;
 	}
 	
-	public BinarySearchTreeNode publicSearch(String username) {
-		return search(root, username);
+	public User publicSearch(String username) {
+		
+		BinarySearchTreeNode result  = search(root, username);
+		if(result != null) {
+			return result.getUser();
+		}else {
+			return null;
+		}
 	}
 	
 	/**
