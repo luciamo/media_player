@@ -91,7 +91,7 @@
       </Text>
    	  <Button mnemonicParsing="false" text="Stop" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" text="| |" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="Play" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#playMusic" text="Play" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
       <TextField fx:id="playlistNome" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <GridPane.margin>
             <Insets top="4.0" />

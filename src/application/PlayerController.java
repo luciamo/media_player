@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
@@ -21,6 +23,7 @@ public class PlayerController implements Initializable{
 	Trie userMusics = new Trie();
 	User user;
 	String currentSelectedPlaylist;
+	MediaPlayer player;
 	
 	@FXML
 	private Text userName;
@@ -208,7 +211,24 @@ public class PlayerController implements Initializable{
 		saveUserAlteration();
 	}
 	
+	/**
+	 * Método para tocar uma musica selecionada (melhorar para tocar uma playlist inteira)
+	 */
 	public void playMusic(){
+		String musica = listViewMusicas.getSelectionModel().getSelectedItem();
+		if(musica != null) {
+			String path = userMusics.searchMusic(musica).getMusicPath();
+			Media media = new Media(path);
+			player = new MediaPlayer(media);
+			player.play();
+		}
+	}
+	
+	public void pause() {
+		
+	}
+	
+	public void Stop() {
 		
 	}
 	
