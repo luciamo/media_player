@@ -10,20 +10,25 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaPlayer.Status;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class PlayerController implements Initializable{
 	
-	Trie userMusics = new Trie();
-	User user;
-	String currentSelectedPlaylist;
-	MediaPlayer player;
+	private Trie userMusics = new Trie();
+	private User user;
+	private String currentSelectedPlaylist;
+	private MediaPlayer player;
 	
 	@FXML
 	private Text userName;
@@ -224,12 +229,24 @@ public class PlayerController implements Initializable{
 		}
 	}
 	
+	/**
+	 * Método para pausar e continuar a musica selecionada
+	 */
 	public void pause() {
-		
+		Status currentStatus = player.getStatus();
+
+	    if(currentStatus == Status.PLAYING)
+	        player.pause();
+	    else if(currentStatus == Status.PAUSED || currentStatus == Status.STOPPED) {
+	        player.play();
+	    }
 	}
 	
+	/**
+	 * Método para parar a musica selecionada de tocar
+	 */
 	public void Stop() {
-		
+		player.stop();
 	}
 	
 	/**
@@ -265,5 +282,20 @@ public class PlayerController implements Initializable{
 			currentSelectedPlaylist = playlistName;
 			loadListViewPlaylistsMusics();
 		}
+	}
+	
+	public void addUser() {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/NewUserScreen.fxml"));
+		Parent root;
+		try {
+			root = loader.load();
+			Stage primaryStage = new Stage();
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
 	}
 }

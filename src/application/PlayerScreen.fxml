@@ -28,7 +28,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="Adicionar Usuario" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#addUser" style="-fx-background-color: #46a0db;" text="Adicionar Usuario" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
@@ -89,8 +89,8 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Text>
-   	  <Button mnemonicParsing="false" text="Stop" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" text="| |" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+   	  <Button mnemonicParsing="false" onAction="#Stop" text="Stop" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#pause" text="| |" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#playMusic" text="Play" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
       <TextField fx:id="playlistNome" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <GridPane.margin>
