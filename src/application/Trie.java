@@ -5,16 +5,13 @@ import java.util.Stack;
 
 public class Trie {
 	
-	private TrieNode root;
-	private ArrayList<String> musicsList;
-	
+	private TrieNode root;	
 	
 	/**
 	 * Método construtor da classe
 	 */
 	Trie(){
 		this.root = new TrieNode();
-		musicsList = new ArrayList<String>();
 	}
 	
 	/**
@@ -80,14 +77,15 @@ public class Trie {
 	 * @param index: indice utilizado para navegar a arvore
 	 * @return musicsList: arraylist contendo os nomes das musicas
 	 */
-	public ArrayList<String> listMusics(TrieNode node,char[] out, int index)
+	public ArrayList<String> listMusics(TrieNode node,char[] out, int index, ArrayList<String> musicas)
 	{
+		ArrayList<String> musicsList = musicas;
 		for(int i=0 ; i < 26; i++)
 		{	
 			if( node.childs[i] != null )
 			{
 				out[index] = (char) ('a'+i);
-				listMusics(node.childs[i] ,out,index+1 );
+				listMusics(node.childs[i] ,out,index+1, musicsList);
 			}
 		}
 		if(node.isEnd())
@@ -103,14 +101,7 @@ public class Trie {
 		}
 		return musicsList;
 	}
-	
-	/**
-	 * Métpdo para limpar o array que retorna a lisda de musicas da árvore. (este array contem as palavras a serem exibidas)
-	 */
-	public void clearResultado() {
-		this.musicsList.clear();
-	}
-	
+		
 	public boolean removeMusic(String musicName) {
 		Stack<TrieNode> stack = new Stack<TrieNode>();
 		TrieNode node = root;

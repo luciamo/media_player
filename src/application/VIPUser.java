@@ -2,6 +2,9 @@ package application;
 
 import java.util.ArrayList;
 
+//Por enquanto nunca vai ser usada... muitos bugs no player controler por causa que tem
+//que saber se o usuario e do tipo User ou VIPUser... (isso era mais facil no inici do semestre!)
+
 public class VIPUser extends User {
 	
 	private ArrayList<PlayList> playLists; 

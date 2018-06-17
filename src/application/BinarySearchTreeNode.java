@@ -21,10 +21,19 @@ public class BinarySearchTreeNode {
 	}
 	
 	/**
-	 * Método para retornar o valor de um nó
+	 * Método para retornar o valor do nó
 	 */
 	public User getUser() {
 		return this.user;
 	}
+	
+	/**
+	 * Método para setra o valor de user
+	 */
+	public void setUser(User user) {
+		 this.user = user;
+	}
+	
+	
 	
 }

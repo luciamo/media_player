@@ -11,7 +11,7 @@ public class JsonReader {
 
 	public Trie openMusicFile(String userName) throws FileNotFoundException {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		BufferedReader br = new BufferedReader(new FileReader("userMusics/"+ userName +"Musics.json"));
+		BufferedReader br = new BufferedReader(new FileReader("usersMusics/" + userName + "Musics.json"));
 		Trie userMusics = gson.fromJson(br, Trie.class);
 		return userMusics;
 	}

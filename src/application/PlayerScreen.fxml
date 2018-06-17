@@ -38,7 +38,7 @@
          </font>
       </Text>
       <ImageView fitHeight="88.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-      <ListView prefHeight="138.0" prefWidth="273.0" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+      <ListView fx:id="listViewPlaylists" prefHeight="138.0" prefWidth="273.0" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.rowSpan="2" />
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlists" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="21.0" />
@@ -47,41 +47,60 @@
             <Insets bottom="5.0" left="25.0" />
          </GridPane.margin>
       </Text>
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="Nova" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" onAction="#criarplayList" style="-fx-background-color: #46a0db;" text="Nova" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
             <Font name="System Bold" size="15.0" />
-         </font></Button>
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="Deletar" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         </font>
+         <GridPane.margin>
+            <Insets left="10.0" top="3.0" />
+         </GridPane.margin></Button>
+      <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#removerPlaylist" style="-fx-background-color: #46a0db;" text="Deletar" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP">
          <font>
             <Font name="System Bold" size="15.0" />
-         </font></Button>
+         </font>
+         <GridPane.margin>
+            <Insets top="3.0" />
+         </GridPane.margin></Button>
       <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Músicas" wrappingWidth="315.6708984375" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Text>
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="Remove" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" onAction="#removeMusic" style="-fx-background-color: #46a0db;" text="Remove" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="Add" textFill="WHITE" GridPane.columnIndex="4" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" onAction="#addMusic" style="-fx-background-color: #46a0db;" text="Add" textFill="WHITE" GridPane.columnIndex="4" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <ListView prefHeight="138.0" prefWidth="273.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="&gt;&gt;&gt;" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+      <ListView fx:id="listViewMusicas" prefHeight="138.0" prefWidth="273.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
+      <Button mnemonicParsing="false" onAction="#addToCurrentPlaylist" style="-fx-background-color: #46a0db;" text="&gt;&gt;&gt;" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button mnemonicParsing="false" style="-fx-background-color: #46a0db;" text="&lt;&lt;&lt;" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <Button mnemonicParsing="false" onAction="#removeFromCurrentPlayList" style="-fx-background-color: #46a0db;" text="&lt;&lt;&lt;" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <ListView prefHeight="138.0" prefWidth="273.0" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlist XXXXX" wrappingWidth="239.6708984375" GridPane.columnIndex="6">
+      <ListView fx:id="listViewMusicasPlyList" prefHeight="138.0" prefWidth="273.0" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4" />
+      <Text fx:id="currentPlayList" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Playlist:" wrappingWidth="239.6708984375" GridPane.columnIndex="6">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Text>
+   	  <Button mnemonicParsing="false" text="Stop" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" text="| |" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" text="Play" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+      <TextField fx:id="playlistNome" GridPane.rowIndex="5" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets top="4.0" />
+         </GridPane.margin>
+      </TextField>
+      <Button layoutX="213.0" layoutY="656.0" mnemonicParsing="false" onAction="#selectedPlaylist" style="-fx-background-color: #46a0db;" text="Selecionar" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </GridPane>

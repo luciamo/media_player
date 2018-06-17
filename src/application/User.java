@@ -1,9 +1,12 @@
 package application;
 
+import java.util.ArrayList;
+
 public class User {
 	
 	private String userName;
 	private String password;
+	private ArrayList<PlayList> playLists;
 	
 	/**
 	 * Método construtor da classe
@@ -13,6 +16,7 @@ public class User {
 	User(String userName, String password){
 		this.userName = userName;
 		this.password = password;
+		playLists = new ArrayList<PlayList>();
 	}
 	
 	/**
@@ -32,5 +36,20 @@ public class User {
 		return this.password.equals(password);
 	}
 
+	public void createPlayList(String playListName) {
+		PlayList playlist = new PlayList(playListName);
+		this.playLists.add(playlist);
+	}
 	
+	public void removePlayList(String playListName) {
+		for(int i = 0; i < playLists.size(); i++) { 
+			if( playLists.get(i).getName().equals(playListName)) {
+				playLists.remove(i);
+			}
+		}
+	}
+
+	public ArrayList<PlayList> getPlayLists() {
+		return playLists;
+	}
 }

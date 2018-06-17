@@ -30,14 +30,14 @@ public class LoginController implements Initializable {
 		String passWord = textPassWord.getText();		
 		
 		if(userExist(userName)){
-			if(users.publicSearch(userName).comparePassword(passWord)) {
+			if(users.publicSearch(userName).getUser().comparePassword(passWord)) {
 				try {
 					
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/PlayerScreen.fxml"));
 					Parent root = loader.load();
 					
 					PlayerController player = loader.getController();
-					player.initData(users.publicSearch(userName));
+					player.initData(users.publicSearch(userName).getUser());
 					
 					Stage primaryStage = new Stage();
 					Scene scene = new Scene(root);
@@ -70,7 +70,7 @@ public class LoginController implements Initializable {
 	}
 	
 	public boolean userExist(String userName) {
-		User user = users.publicSearch(userName);
+		User user = users.publicSearch(userName).getUser();
 		if(user != null) {
 			return true;
 		}else {

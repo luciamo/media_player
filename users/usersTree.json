@@ -1,9 +1,14 @@
 {
   "root": {
     "user": {
-      "playLists": [],
       "userName": "Joseh",
-      "password": "admin"
+      "password": "admin",
+      "playLists": [
+        {
+          "name": "plailist",
+          "musics": []
+        }
+      ]
     }
   }
 }
